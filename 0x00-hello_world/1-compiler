@@ -1,2 +1,2 @@
 #!/bin/bash
-gccc -nostdlib $CFILE -ofilename
+gcc -c $CFILE -ofilename
