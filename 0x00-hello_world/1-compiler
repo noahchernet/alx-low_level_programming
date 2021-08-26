@@ -1,2 +1,2 @@
 #!/bin/bash
-gccc -nostartfiles -nostdlib $CFILE -ofilename
+gccc -nostdlib $CFILE -ofilename
