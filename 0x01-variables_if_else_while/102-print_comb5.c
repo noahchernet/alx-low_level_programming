@@ -1,52 +1,42 @@
-#include <stdlib.h>
-#include <time.h>
 #include <stdio.h>
 
-/* betty style doc for function main goes there */
 /**
- * main - Entry point
- *
- * Return: Always 0 (Success)
- */
+ *  * main - a simple program that outputs unordered
+ *   * combinations of two digit integers without duplicates
+ *    *
+ *     * Return: 0 on success
+ *      */
 int main(void)
 {
-	int i, j, k, l;
-
-	i = j = k = 48; l = 49;
-	while  ((i < 58))
+	int ifirst;
+	int i;
+	int jfirst;
+	int j;
+	for (ifirst = 48; ifirst < 58; ifirst++)
 	{
-		putchar(i); putchar(j); putchar(32); putchar(k); putchar(l);
-		if ((i == 57) && (j == 56) && (k == 57) && (l == 57))
+		for (i = 48; i < 58; i++)
 		{
-			putchar('\n'); i++;
-		}
-		else
-		{
-			putchar(44); putchar(32);
-			if ((k == 57) && (l == 57))
+			j = i + 1;
+			jfirst = ifirst;
+			for (; jfirst < 58; jfirst++)
 			{
-				if (j < 56)
-				{
-					l = ++j + 1; k = i;
-				}
-				else if (j == 56)
-				{
-					j++; k = i + 1; l = 48;
-				}
-				else if (j == 57)
-				{
-					j = 48; l = 49; k = ++i;
-				}
-			}
-			else if (l < 57)
-			{
-				l++;
-			}
-			else
-			{
-				l = 48; k++;
+					for (; j < 58; j++)
+					{
+						putchar(ifirst);
+						putchar(i);
+						putchar(' ');
+						putchar(jfirst);
+						putchar(j);
+						if (ifirst != 57 || jfirst != 57 || i != 56 || j != 57)
+						{
+							putchar(',');
+							putchar(' ');
+						}
+					}
+					j = 48;
 			}
 		}
 	}
+	putchar('\n');
 	return (0);
 }
