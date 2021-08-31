@@ -7,8 +7,9 @@
  */
 int main(void)
 {
-	int Holberton[] = {72, 111, 108, 98, 101, 114, 116,
-			111, 110};
+	/* int Holberton[] = {72, 111, 108, 98, 101, 114, 116,
+			111, 110};*/
+	char Holberton[] = "_putchar";
 	int ij;
 
 	for (ij = 0; ij < 9; ij++)
