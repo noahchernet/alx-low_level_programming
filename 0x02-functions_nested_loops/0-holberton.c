@@ -1,4 +1,4 @@
-#include "_putchar.c"
+#include "main.h"
 
 /**
  * main - Prints Holberton using _putchar()
@@ -7,12 +7,13 @@
  */
 int main(void)
 {
-	int chars[] = {72, 111, 108, 98, 101, 114, 116,
-	111, 110};
-	int i = 0;
-	for (; i < 9; i++)
+	int Holberton[] = {72, 111, 108, 98, 101, 114, 116,
+			111, 110};
+	int ij;
+
+	for (ij = 0; ij < 9; ij++)
 	{
-		_putchar(chars[i]);
+		_putchar(Holberton[ij]);
 	}
 	_putchar(10);
 	return (0);
