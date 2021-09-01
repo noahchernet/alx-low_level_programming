@@ -14,8 +14,7 @@ void print_to_98(int n)
 
 		if (n == 98)
 			return;
-
-		putchar(44);
+		_putchar(44);
 		_putchar(32);
 	}
 }
