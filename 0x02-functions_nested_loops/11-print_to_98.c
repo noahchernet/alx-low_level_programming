@@ -9,8 +9,8 @@ void print_to_98(int n)
 {
 	for (; n <= 98; n++)
 	{
-		_putchar((n / 10) % 10);
-		_putchar(n % 10);
+		_putchar(48 +(n / 10) % 10);
+		_putchar(48 + n % 10);
 
 		if (n == 98)
 			return;
