@@ -13,7 +13,7 @@ void print_to_98(int n)
 		_putchar(48 + n % 10);
 
 		if (n == 98)
-			return;
+			break;
 		_putchar(44);
 		_putchar(32);
 	}
