@@ -5,7 +5,7 @@
  *
  * Return: 0
  */
-int main(void)
+void print_alphabet(void)
 {
 	char lowerCase[] = "abcdefghijklmnopqrstuvwxyz";
 	int i;
@@ -13,6 +13,5 @@ int main(void)
 	{
 		_putchar(lowerCase[i]);
 	}
-
-	return (0);
+	_putchar(10);
 }
