@@ -1,42 +1,50 @@
-#include "main.h"
+#include "holberton.h"
+
 /**
- * print_times_table - prints the n times table, starting with 0.
- * @n: the nth table
+ * print_times_table - prints the times table up to the integer input
+ * @n: integer input
+ *
  * Return: void
  */
 
 void print_times_table(int n)
 {
-	int i, j;
+	int a, b, c, d, e, f;
 
-	if (n > 15 || n < 0)
+	if (n >= 0 && n < 15)
 	{
-		return;
-	}
-	for (i = 0; i <= n; i++)
-	{
-		for (j = 0; j <= n; j++)
+		for (a = 0; a <=  n; a++)
 		{
-			if (((i * j) / 10) % 10 != 0)
+			for (b = 0; b <= n; b++)
 			{
-				_putchar(48 + ((i * j) / 10) % 10);
-			}
-
-			_putchar(48 + ((i * j) % 10));
-			if (j == 9)
-			{
-				_putchar(10);
-			}
-			else if ((i * (j + 1)) > 9)
-			{
-				_putchar(44);
-				_putchar(32);
-			}
-			else
-			{
-				_putchar(44);
-				_putchar(32);
-				_putchar(32);
+				c = a * b; d = c / 100; e = (c /  10) % 10;
+				f = (c % 100) % 10;
+				if (b == 0)
+				{
+					_putchar('0');
+				}
+				else if (c < 10)
+				{
+					_putchar(' '); _putchar(' ');
+					_putchar('0' + f);
+				}
+				else if (c < 100)
+				{
+					_putchar(' ');
+					_putchar('0' + e); _putchar('0' + f);
+				}
+				else
+				{
+					_putchar('0' + d);
+					_putchar('0' + e);
+					_putchar('0' + f);
+				}
+				if (b < n)
+				{
+					_putchar(','); _putchar(' ');
+				}
+				else
+					_putchar('\n');
 			}
 		}
 	}
