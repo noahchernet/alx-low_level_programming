@@ -7,6 +7,20 @@
  */
 void print_to_98(int n)
 {
+	if (n > 98)
+	{
+	for (; n >= 98; n--)
+	{
+		_putchar(48 + (n / 10) % 10);
+		_putchar(48 + n % 10);
+
+		if (n == 98)
+			break;
+		_putchar(44);
+		_putchar(32);
+	}
+	else
+	{
 	for (; n <= 98; n++)
 	{
 		_putchar(48 + (n / 10) % 10);
@@ -16,6 +30,7 @@ void print_to_98(int n)
 			break;
 		_putchar(44);
 		_putchar(32);
+	}
 	}
 	_putchar(10);
 }
