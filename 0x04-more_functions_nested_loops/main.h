@@ -1,8 +1,3 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
-
-#include <unistd.h>
-
 int _putchar(char c);
 
 /* 0 */
@@ -39,5 +34,3 @@ void print_triangle(int size);
 
 /* 12 */
 void print_number(int n);
-
-#endif /* HOLBERTON_H */
