@@ -20,8 +20,6 @@ void print_array(int *a, int n)
 			break;
 		}
 
-		printf("%d", a[i]);
-		_putchar(44);
-		_putchar(32);
+		printf("%d, ", a[i]);
 	}
 }
