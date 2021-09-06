@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * print_array - prints the first n elements of array ay
  * @a: the array whose elements are going to be printed
@@ -16,11 +16,11 @@ void print_array(int *a, int n)
 	{
 		if (i == n - 1)
 		{
-			_putchar(a[i]);
+			printf("%d", a[i]);
 			break;
 		}
 
-		_putchar(a[i]);
+		printf("%d", a[i]);
 		_putchar(44);
 		_putchar(32);
 	}
