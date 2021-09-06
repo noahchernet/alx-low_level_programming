@@ -13,6 +13,8 @@ void rev_string(char *s)
 	int i = 0;
 	char *r;
 	r = s;
+	char c;
+	
 	/* Calculate the size of the string */
 	while (s[n] != 0)
 	{
@@ -21,7 +23,8 @@ void rev_string(char *s)
 
 	while (n  >= 0)
 	{
-		s[n] = r[i];
+		c = s[i];
+		s[n] = c;
 		i++;
 		n--;
 	}
