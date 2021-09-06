@@ -11,7 +11,7 @@ void rev_string(char *s)
 {
 	int n = 0; /* The size of the string */
 	int i = 0;
-	char replicate = s;
+	char replicate = *s;
 	/* Calculate the size of the string */
 	while (s[n] != 0)
 	{
