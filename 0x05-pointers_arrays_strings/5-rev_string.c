@@ -12,6 +12,7 @@ void rev_string(char *s)
 	int n = 0; /* The size of the string */
 	int i;
 	char *r;
+	int k;
 
 	r = s;
 
@@ -21,7 +22,7 @@ void rev_string(char *s)
 		n++;
 	}
 
-	int k = n;
+	k = n;
 
 	for (i = 0; i <= k; i++)
 	{
