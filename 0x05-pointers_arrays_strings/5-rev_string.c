@@ -10,21 +10,22 @@
 void rev_string(char *s)
 {
 	int n = 0; /* The size of the string */
-	int i = 0;
+	int i;
+	char *r;
+
+	r = s;
 
 	/* Calculate the size of the string */
 	while (s[n] != 0)
 	{
 		n++;
 	}
-	char *r[n];
-	
-	while (n  >= 0)
+
+	int k = n;
+
+	for (i = 0; i <= k; i++)
 	{
-		r[n] = s[i];
-		i++;
+		s[i] = r[n];
 		n--;
 	}
-
-	s = r;
 }
