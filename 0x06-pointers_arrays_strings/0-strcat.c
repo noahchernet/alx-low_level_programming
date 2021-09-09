@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strcat - concatenates two strings
@@ -23,12 +24,12 @@ char *_strcat(char *dest, char *src)
 	{
 		dest_len++;
 	}
-	dest_len++;
-
+	src_len--;
 	for (i = 0; i <= src_len; i++)
 	{
 		dest[dest_len] = src[i];
 		dest_len++;
+/*		printf("dest is now: %s\n", dest);*/
 	}
 
 	return (dest);
