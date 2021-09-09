@@ -31,6 +31,6 @@ char *_strcat(char *dest, char *src)
 		dest_len++;
 	}
 
-	return (*dest);
+	return (dest);
 
 }
