@@ -28,10 +28,8 @@ char *_strncpy(char *dest, char *src, int n)
 		dest_len++;
 	}
 
-	printf("\n----------------\nCopying string\n-------------------\n");
 	for (i = 0; i < n && src[i] != '\0'; i++)
 	{
-		printf("Now dest is: %s\n", dest);
 		dest[i] = src[i];
 	}
 	for (; i < n; i++)
