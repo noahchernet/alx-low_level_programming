@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strncpy - copies the first n number of characters form src to dest,
@@ -27,13 +28,14 @@ char *_strncpy(char *dest, char *src, int n)
 		dest_len++;
 	}
 
-	for (i = 0; i < n; i++)
+	printf("\n----------------\nCopying string\n-------------------\n");
+	for (i = 0; i < n && src[i] != '\0'; i++)
 	{
-		if (i > src_len)
-			break;
+		printf("Now dest is: %s\n", dest);
 		dest[i] = src[i];
-		dest_len++;
 	}
+	for (; i < n; i++)
+		dest[i] = '\0';
 
 	return (dest);
 }
