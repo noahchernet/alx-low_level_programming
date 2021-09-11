@@ -10,7 +10,7 @@
 void print_number(int n)
 {
 	int i = 1;
-	
+
 	if (n < 0)
 	{
 		n *= -1;
@@ -27,10 +27,9 @@ void print_number(int n)
 		i /= 10;
 
 	}
-	
+
 	if (n == 0)
 	{
 		_putchar(48);
 	}
-	_putchar(' ');
 }
