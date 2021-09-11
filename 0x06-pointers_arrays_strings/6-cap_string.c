@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-  * cap_string - Capitalizes every letter coming after a space, tabulation, 
+  * cap_string - Capitalizes every letter coming after a space, tabulation,
   * new line, ,, ;, ., !, ?, ", (, ), {, and } in @s
   * @s: the string to be capitalized
   *
@@ -21,7 +21,7 @@ char *cap_string(char *s)
 	{
 		len++;
 	}
-	
+
 	len--;
 
 	for (i = 0; i < len; i++)
@@ -32,7 +32,7 @@ char *cap_string(char *s)
 				s[i + 1] = (char) s[i + 1] - 32;
 		}
 	}
-	
+
 	return (s);
 
 }
