@@ -30,5 +30,4 @@ void reverse_array(int *a, int n)
 		a[i] = b[n - 1 - i];
 	}
 
-	printf("\n");
 }
