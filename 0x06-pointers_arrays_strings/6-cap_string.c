@@ -1,0 +1,38 @@
+#include "main.h"
+
+/**
+  * cap_string - Capitalizes every letter coming after a space, tabulation, 
+  * new line, ,, ;, ., !, ?, ", (, ), {, and } in @s
+  * @s: the string to be capitalized
+  *
+  * Return: @s, the string, capitalized
+  */
+
+char *cap_string(char *s)
+{
+	/* @c: the characters that make the next letter eligible to be capitalized */
+	char c[] = {' ', '	', '\n', ',', ';', '.', '!', '?', '(', ')',
+		  '{', '}'};
+	int len = 0;
+	int i;
+	int k;
+
+	while (s[len] != '\0')
+	{
+		len++;
+	}
+	
+	len--;
+
+	for (i = 0; i < len; i++)
+	{
+		for (k = 0; k < 12; k++)
+		{
+			if (s[i] == c[k] && s[i + 1] >= 97 && s[i + 1] <= 122)
+				s[i + 1] = (char) s[i + 1] - 32;
+		}
+	}
+	
+	return (s);
+
+}
