@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
   * cap_string - Capitalizes every letter coming after a space, tabulation,
@@ -23,7 +22,6 @@ char *cap_string(char *s)
 		len++;
 	}
 
-	len--;
 
 	for (i = 0; i < len; i++)
 	{
@@ -31,12 +29,10 @@ char *cap_string(char *s)
 		{
 			if (s[i] == c[k] && s[i + 1] >= 97 && s[i + 1] <= 122)
 			{
-				/*printf("s[i] is \"%c\" and s[i+1] is \"%c\"\n", s[i], s[i+1]);*/
 				s[i + 1] = (char) s[i + 1] - 32;
 			}
 		}
 	}
 
 	return (s);
-
 }
