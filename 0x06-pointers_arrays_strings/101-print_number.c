@@ -10,13 +10,7 @@
 void print_number(int n)
 {
 	int i = 1;
-/*
-	if (n == 0)
-	{
-		_putchar(48);
-		return;
-	}
-*/
+	
 	if (n < 0)
 	{
 		n *= -1;
@@ -38,4 +32,5 @@ void print_number(int n)
 	{
 		_putchar(48);
 	}
+	_putchar(' ');
 }
