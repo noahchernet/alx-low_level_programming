@@ -18,16 +18,16 @@ void print_diagsums(int *a, int size)
 
 	for (i = 0; i < size; i++)
 	{
-		/* printf("Adding %d\n", *(*(&a + i) + i));*/
-		right_diagonal += *((&a + i) + i);
+		/* printf("Adding %d\n", *(a + i * size + i)); */
+		right_diagonal += *(a + i * size + i);
 	}
 
 	j = size - 1;
 
 	for (i = 0; i < size; i++)
 	{
-		/*printf("Adding %d\n", *(*(&a + i) + i));*/
-		left_diagonal += *(*(&a + i) + j);
+		/*printf("Adding %d\n", *(a + i * size + j));*/
+		left_diagonal += *(a + i * size + j);
 		j--;
 	}
 
