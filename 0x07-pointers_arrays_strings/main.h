@@ -1,5 +1,5 @@
 /**
- * Contains prototype of every function under 0x07-pointers_arrays_strings
+ * Contains prototypes of all function under 0x07-pointers_arrays_strings
  */
 
 char *_memset(char *s, char b, unsigned int n);
