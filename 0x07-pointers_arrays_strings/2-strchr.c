@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
-  * _strchr - Returns a pointer to the first occurrence of the character c in 
+  * _strchr - Returns a pointer to the first occurrence of the character c in
   * the string s, or NULL if the character is not found
   * @s: the string to be parsed
   * @c: the character to be looked for
