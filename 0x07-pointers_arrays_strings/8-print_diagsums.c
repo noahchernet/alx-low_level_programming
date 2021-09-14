@@ -19,7 +19,7 @@ void print_diagsums(int *a, int size)
 	for (i = 0; i < size; i++)
 	{
 		/* printf("Adding %d\n", *(*(&a + i) + i));*/
-		right_diagonal += *(*(&a + i) + i);
+		right_diagonal += *((&a + i) + i);
 	}
 
 	j = size - 1;
