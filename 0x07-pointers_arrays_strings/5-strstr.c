@@ -26,7 +26,8 @@ char *_strstr(char *haystack, char *needle)
 		{
 
 			/* printf("Checking if %c == %c\n", haystack[i], needle[j]); */
-			if (haystack[i + j] == needle[j])
+			if (haystack[i + j] == needle[j] &&
+					haystack[i + j] != 0 && needle[j] != 0)
 			{
 				needle_in_haystack = 1;
 				continue;
