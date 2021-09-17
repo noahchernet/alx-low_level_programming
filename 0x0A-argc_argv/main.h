@@ -1,1 +1,1 @@
-int main(int argc, char *argv[]);
+void printname(char *str);
