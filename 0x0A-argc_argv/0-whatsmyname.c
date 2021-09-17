@@ -14,7 +14,6 @@ void printname(char *str)
 
 /**
   * main - prints the name passed to it on runtime
-  * @argc: number of arguments passed
   * @argv: array of passed arguments
   *
   * Return: Always 0
@@ -22,6 +21,6 @@ void printname(char *str)
 
 int main(int argc, char *argv[])
 {
-	printname(argv[0]);
+	printname(argv[argc * 0]);
 	return (0);
 }
