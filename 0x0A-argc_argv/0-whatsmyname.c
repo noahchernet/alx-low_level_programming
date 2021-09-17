@@ -15,6 +15,7 @@ void printname(char *str)
 /**
   * main - prints the name passed to it on runtime
   * @argv: array of passed arguments
+  * @argc: number of passed arguments
   *
   * Return: Always 0
   */
