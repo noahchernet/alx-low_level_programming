@@ -3,7 +3,7 @@
 /**
  * main - Program starts here
  *
- * Return: 0, not necessaary to return another value
+ * Return: 0, not necessary to return another value
  */
 int main(void)
 {
