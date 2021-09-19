@@ -29,8 +29,6 @@ char *cap_string(char *s)
 		{
 			if (s[i] == c[k] && s[i + 1] >= 97 && s[i + 1] <= 122)
 			{
-				if (s[i] == '\t')
-					s[i] = ' ';
 				s[i + 1] =  s[i + 1] - 32;
 			}
 		}
