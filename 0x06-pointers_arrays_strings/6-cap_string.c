@@ -13,7 +13,7 @@ char *cap_string(char *s)
 	/*
 	 * @c: the characters that make the next letter eligible to be capitalized
 	 */
-	char c[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '\"', '(', ')',
+	char c[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '"', '(', ')',
 		  '{', '}'};
 	int len = 0;
 	int i;
