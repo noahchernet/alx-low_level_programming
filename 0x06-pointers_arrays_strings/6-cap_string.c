@@ -10,7 +10,9 @@
 
 char *cap_string(char *s)
 {
-	/* @c: the characters that make the next letter eligible to be capitalized */
+	/*
+	 * @c: the characters that make the next letter eligible to be capitalized
+	 */
 	char c[] = {' ', '\t', '\n', ',', ';', '.', '!', '?', '\"', '(', ')',
 		  '{', '}'};
 	int len = 0;
@@ -29,7 +31,7 @@ char *cap_string(char *s)
 		{
 			if (s[i] == c[k] && s[i + 1] >= 97 && s[i + 1] <= 122)
 			{
-				s[i + 1] =  s[i + 1] - 32;
+				s[i + 1] =  (char) (s[i + 1] - 32);
 			}
 		}
 	}
