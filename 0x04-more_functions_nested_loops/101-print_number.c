@@ -1,20 +1,21 @@
 #include "main.h"
 #include "stdio.h"
 
-/*
- * print_number - prints integer passed to it using _putchar
- * @n: number to be printed
+/**
+ * power - raise x to the positive exponent power
+ * @x: number to be raised
+ * @power: the exponent
  *
- * Return: void
+ * Return: 1 if power is zero, result if otherwise
  */
-
 int power(int x, int power)
 {
 	int result = 1;
 /*	printf("%d raised to %d is ", x, power);*/
 
 
-	while (power != 0) {
+	while (power != 0)
+	{
 		result *= x;
 		--power;
 	}
@@ -22,6 +23,14 @@ int power(int x, int power)
 /*	printf("%d\n", result);*/
 	return (result);
 }
+
+
+/**
+ * print_number - prints integer passed to it using _putchar
+ * @n: number to be printed
+ *
+ * Return: void
+ */
 
 void print_number(int n)
 {
@@ -35,9 +44,11 @@ void print_number(int n)
 
 	while (n / power(10, digits) > 0)
 	{
-/*		x = power(10, digits);
-		printf("%d / %d is %d\n\n", n, x, n / x);
-		printf("digits = %d, digits - 1 = %d\n", digits, digits - 1);*/
+/*
+ *		x = power(10, digits);
+ *		printf("%d / %d is %d\n\n", n, x, n / x);
+ *		printf("digits = %d, digits - 1 = %d\n", digits, digits - 1);
+ */
 		digits++;
 	}
 
@@ -50,11 +61,11 @@ void print_number(int n)
 	}
 
 /*
-	printf("From printf: %d is %c", n, );
-*/
-	for (i = 0; i <= digits; i++)
+ *	printf("From printf: %d is %c", n, );
+ */
+	for (i = digits; i >= 0; i--)
 	{
-		_putchar((char) (48 + (n / power(10, i))));
+		_putchar((char) (48 + (n / power(10, i) % 10)));
 	}
 
 /*	printf("---\n%d has %d digits.\n---\n", n, digits);*/
