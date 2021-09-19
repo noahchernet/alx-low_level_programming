@@ -31,4 +31,6 @@ void print_square(int size);
 void print_triangle(int size);
 
 /* 12 */
-__attribute__((unused)) void print_number(int n);
+void print_number(int n);
+
+int power(int x, int power);
