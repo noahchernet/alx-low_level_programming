@@ -13,6 +13,13 @@ char *str_concat(char *s1, char *s2)
 	int len_s1 = 0, len_s2 = 0, n;
 	char *concatenated_str;
 
+	if (s1 == 0)
+		s1 = "";
+
+
+	if (s2 == 0)
+		s2 = "";
+
 	while (s1[len_s1] != 0)
 		len_s1++;
 
@@ -20,7 +27,10 @@ char *str_concat(char *s1, char *s2)
 		len_s2++;
 
 	n = len_s1 + len_s2;
-	concatenated_str = malloc(n);
+	concatenated_str = malloc(n + 1);
+
+	if (concatenated_str == 0)
+		return (0);
 
 	n = len_s1;
 	while (n >= 0)
