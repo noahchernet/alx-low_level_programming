@@ -9,8 +9,8 @@
 void *malloc_checked(unsigned int b)
 {
 	void *allocated_mem;
-	allocated_mem =  malloc(b);
 
+	allocated_mem =  malloc(b);
 	if (allocated_mem)
 		return (allocated_mem);
 
