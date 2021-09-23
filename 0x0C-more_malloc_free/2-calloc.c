@@ -19,7 +19,10 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 	arr = malloc(nmemb * size);
 	if (!arr)
+	{
+		free(arr);
 		return (NULL);
+	}
 
 	return (arr);
 }
