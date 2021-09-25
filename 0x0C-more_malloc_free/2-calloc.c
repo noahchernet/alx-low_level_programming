@@ -12,23 +12,19 @@
 
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *arr;
-	unsigned int i;
+	void *arr;
 
 	if (!nmemb || !size)
 		return (NULL);
 
-	arr = malloc(nmemb * size);
+	printf("Allocating memory");
+
+	arr = (void *) malloc(nmemb * size);
 	if (!arr)
 	{
 		free(arr);
 		return (NULL);
 	}
 
-	for (i = 0; i < nmemb; i++)
-	{
-		arr[i] = 0;
-	}
-
-	return ((void *) arr);
+	return (arr);
 }
