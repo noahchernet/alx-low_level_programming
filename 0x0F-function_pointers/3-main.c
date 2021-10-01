@@ -1,4 +1,5 @@
 #include "3-calc.h"
+#include "string.h"
 
 /**
  * main - program starts here
@@ -21,8 +22,8 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	if (*argv[2] != '+' && *argv[2] != '-' && *argv[2] != '*' && *argv[2] !=
-		'/' && *argv[2] != '%' && argv[2][1] != 0)
+	if ((*argv[2] != '+' && *argv[2] != '-' && *argv[2] != '*' && *argv[2] !=
+		'/' && *argv[2] != '%') || strlen(argv[2]) != 1)
 	{
 		printf("Error\n");
 		exit(99);
