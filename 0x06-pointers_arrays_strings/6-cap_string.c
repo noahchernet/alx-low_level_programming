@@ -24,6 +24,8 @@ char *cap_string(char *s)
 		len++;
 	}
 
+	if (s[0] >= 97 && s[0] <= 122)
+		s[0] =  (char) (s[0] - 32);
 
 	for (i = 0; i < len; i++)
 	{
