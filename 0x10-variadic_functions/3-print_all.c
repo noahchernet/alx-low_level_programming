@@ -10,13 +10,13 @@
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	int i = 0, len = 0;
+	int i = 0;
 	char *s;
 
-	while (format[len] != 0)
-		len++;
+	while (format == NULL)
+		return;
 	va_start(ap, format);
-	while (i <= len)
+	while (format[i] != 0)
 	{
 		switch (format[i])
 		{
@@ -42,7 +42,7 @@ void print_all(const char * const format, ...)
 				i++;
 				continue;
 		}
-		if (i + 1 == len)
+		if (format[i + 1] == 0)
 			break;
 		printf(", ");
 		i++;
