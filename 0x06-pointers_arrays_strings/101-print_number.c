@@ -1,7 +1,6 @@
 #include "main.h"
-
 /**
-  * print_number - prints the passed intiger using _putchar
+  * print_number - prints the passed integer using _putchar
   * @n: number to be printed
   *
   * Return: Always void
@@ -9,17 +8,32 @@
 
 void print_number(int n)
 {
-	int i = 1;
+	int i = 1; /* Holds how many digits n has */
 
+	/**
+	 * if n is zero, just print zero
+	 */
+	if (n == 0)
+	{
+		_putchar(48);
+		return;
+	}
+
+	/**
+	 * If n is negative, put the '-' sign and replace n by its
+	 * absolute value
+	 */
 	if (n < 0)
 	{
 		n *= -1;
 		_putchar(45);
 	}
 
-	while (n / i != 0)
+
+	while (n / i >= 10)
+	{
 		i *= 10;
-	i /= 10;
+	}
 
 	while (i != 0)
 	{
@@ -28,8 +42,4 @@ void print_number(int n)
 
 	}
 
-	if (n == 0)
-	{
-		_putchar(48);
-	}
 }
