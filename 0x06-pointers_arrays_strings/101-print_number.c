@@ -25,8 +25,13 @@ void print_number(int n)
 	 */
 	if (n < 0)
 	{
-		n *= -1;
+		n /= -1;
 		_putchar(45);
+		if (n == -2147483648)
+		{
+			n = 147483648;
+			_putchar(50);
+		}
 	}
 
 
