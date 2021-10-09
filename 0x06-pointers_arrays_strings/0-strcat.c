@@ -4,7 +4,7 @@
 /**
  * _strcat - concatenates two strings
  * @src: the first string
- * @dest: the string wich @src will be concatenated to
+ * @dest: the string which @src will be concatenated to
  *
  * Return: char pointer of the concatenated string
  */
@@ -29,7 +29,6 @@ char *_strcat(char *dest, char *src)
 	{
 		dest[dest_len] = src[i];
 		dest_len++;
-/*		printf("dest is now: %s\n", dest);*/
 	}
 
 	return (dest);
