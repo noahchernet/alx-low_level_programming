@@ -1,7 +1,11 @@
 #include "lists.h"
 
 /**
+ * print_list - prints contents the linked list of type list_t
+ * @h: the pointer to the head of the linked list
  *
+ * Return: the number of nodes in the linked list
+ *		   0 if the list is NULL
  */
 
 size_t print_list(const list_t *h)
@@ -21,5 +25,5 @@ size_t print_list(const list_t *h)
 		h = h->next;
 	}
 
-	return nodes;
+	return (nodes);
 }
