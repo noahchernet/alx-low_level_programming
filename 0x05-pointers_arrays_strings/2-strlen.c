@@ -4,7 +4,7 @@
  * _strlen - counts the length of a string
  * @s: the string whose length is to be calculated
  *
- * Return: n, the length of the sring
+ * Return: n, the length of the string
  */
 
 int _strlen(char *s)
