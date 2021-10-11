@@ -13,9 +13,15 @@ list_t *add_node(list_t **head, const char *str)
 	list_t *new_node = malloc(sizeof(list_t));
 	int length_of_str = _strlen((char *) str);
 
-	new_node->str = malloc(sizeof(new_node->str));
+	if (!new_node)
+	{
+		free(new_node);
+		return (NULL);
+	}
 
-	if (!new_node || !new_node->str)
+	new_node->str = strdup(str);
+
+	if (!new_node->str)
 	{
 		free(new_node->str);
 		free(new_node);
@@ -28,8 +34,6 @@ list_t *add_node(list_t **head, const char *str)
 
 	*head = new_node;
 
-	if (new_node->next == NULL)
-		printf("NULL.\n");
 	return (new_node);
 }
 
