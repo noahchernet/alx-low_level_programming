@@ -13,15 +13,21 @@ void free_list(list_t *head)
 	list_t *first_node = head;
 	int i, nodes = 0;
 
-	while (head != NULL)
+	for (; head != NULL; nodes++)
 	{
-		nodes++;
 		head = head->next;
 	}
 	nodes--;
 	head = first_node;
-	all_nodes = malloc(sizeof(list_t) * nodes);
 
+	if (nodes == 0)
+	{
+		free(head->str);
+		free(head->next);
+		free(head);
+		return;
+	}
+	all_nodes = malloc(sizeof(list_t) * nodes);
 	for (i = 0; i < nodes; i++)
 	{
 		all_nodes[i] = head;
@@ -33,7 +39,6 @@ void free_list(list_t *head)
 		free(all_nodes[i]->str);
 		free(all_nodes[i]->next->str);
 		free(all_nodes[i]->next);
-
 		free(all_nodes[i]);
 	}
 
@@ -43,6 +48,5 @@ void free_list(list_t *head)
 		free(all_nodes[0]->next);
 		free(all_nodes[0]);
 	}
-
 	free(all_nodes);
 }
