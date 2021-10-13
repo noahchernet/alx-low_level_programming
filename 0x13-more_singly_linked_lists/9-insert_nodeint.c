@@ -12,43 +12,64 @@
 
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	listint_t *new_node = malloc(sizeof(listint_t *));
-	listint_t *next_to_new_node;
+	unsigned int i, len = list_len(*head);
 	listint_t *first_node = *head;
-	unsigned int i;
+	listint_t *new_node = malloc(sizeof(listint_t));
+	listint_t *next_to_new_node;
 
-	new_node->n = n;
-	new_node->next = NULL;
-
-	if (!head || !new_node)
+	if (!new_node || !head)
 	{
 		free(new_node);
 		return (NULL);
 	}
 
-	if (idx != 0)
+	new_node->n = n;
+	new_node->next = NULL;
+	if (!len)
+		return (NULL);
+	else if (idx + 1 > len)
 	{
-		for (i = 0; i < idx && *head != NULL; i++)
-		{
+		while ((*head)->next != NULL)
 			*head = (*head)->next;
-			if (i + 2 == idx)
-			{
-				next_to_new_node = (*head)->next;
-				(*head)->next = new_node;
-				if (next_to_new_node)
-					new_node->next = next_to_new_node;
-			}
-		}
+
+		(*head)->next = new_node;
+		*head = first_node;
+	}
+	else if (idx != 0)
+	{
+		for (i = 0; i < idx - 1; i++)
+			*head = (*head)->next;
+		next_to_new_node = (*head)->next;
+
+		(*head)->next = new_node;
+		new_node->next = next_to_new_node;
+		*head = first_node;
 	}
 	else
 	{
-		(*head)->next = new_node;
+		new_node->next = *head;
+		*head = new_node;
+	}
+	return (new_node);
+}
+
+/**
+ * list_len - get the number of nodes in the linked list @h
+ * @h: the linked list whose size is to be calculated
+ *
+ * Return: the size of the list
+ */
+unsigned int list_len(listint_t *h)
+{
+	unsigned int nodes = 0;
+	listint_t *first_node = h;
+
+	while (h != NULL)
+	{
+		nodes++;
+		h = h->next;
 	}
 
-	if (!*head)
-		return (NULL);
-
-	*head = first_node;
-
-	return (new_node);
+	h = first_node;
+	return (nodes);
 }
