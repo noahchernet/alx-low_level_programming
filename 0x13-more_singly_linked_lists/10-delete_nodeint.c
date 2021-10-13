@@ -26,8 +26,6 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 
 		*head = first_node;
 		return (1);
-	} else
-	{
-		return (-1);
 	}
+	return (-1);
 }
