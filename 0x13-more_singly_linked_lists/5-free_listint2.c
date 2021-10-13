@@ -9,9 +9,8 @@
 
 void free_listint2(listint_t **head)
 {
-	if (!*head)
+	if (!*head || !head)
 		return;
-	printf("NOT NULL\n");
 	if ((*head)->next)
 		free_listint2(&((*head)->next));
 	free(*head);
