@@ -1,56 +1,31 @@
 #include <stdio.h>
 
 /**
- * seive_of_atkin - lists all the prime numbers up to limit 612852475143
+ * print_largest_prime - prints the largest prime of @n
+ * @n: the number whose largest prime is to be looked for
  *
  * Return: array of primes
  */
 
-void seive_of_atkin()
+void print_largest_prime(long n)
 {
-	long limit = 612852475143;
-	static int seive[50847534];
-	long i, n, x, y, r;
+	long maxFact, div = 2;
 
-	for (i = 0; i < limit; i++)
+	while (n != 0)
 	{
-		seive[i] = 0;
-	}
-	for (x = 1; x * x < limit; x++)
-	{
-		for (y = 1; y * y < limit; y++)
+		if (n % div != 0)
+			div = div + 1;
+		else
 		{
-			n = (4 * x * x) + (y * y);
-			if (n <= limit && (n % 12 == 1 || n % 12 == 5))
-				seive[n] ^= 1;
-
-			n = (3 * x * x) + (y * y);
-			if (n <= limit && n % 12 == 7)
-				seive[n] ^= 1;
-
-			n = (3 * x * x) - (y * y);
-			if (x > y && n <= limit && n % 12 == 11)
-				seive[n] ^= 1;
-		}
-
-/*		 Mark all multiples of squares as non-prime*/
-		for (r = 5; r * r < limit; r++)
-			if (seive[r])
+			maxFact = n;
+			n = n / div;
+			if (n == 1)
 			{
-				for (i = r * r; i < limit; i += r * r)
-					seive[i] = 0;
+				printf("%ld\n", maxFact);
+				break;
 			}
-
+		}
 	}
-
-	/* Print primes using seive[]*/
-	for (i = 5; i < limit; i++)
-	{
-		if (seive[i])
-			printf("%ld", i);
-	}
-
-/*	return (seive);*/
 }
 
 /**
@@ -61,8 +36,6 @@ void seive_of_atkin()
 
 int main(void)
 {
-	printf("Starting...\n");
-	seive_of_atkin();
-	printf("Finished\n");
+	print_largest_prime(612852475143);
 	return (0);
 }
