@@ -13,6 +13,12 @@ void print_binary(unsigned long int n)
 	unsigned long int copy = n;
 	int i;
 
+	if (n == 0)
+	{
+		_putchar(48);
+		return;
+	}
+
 	while (n)
 	{
 		count++;
