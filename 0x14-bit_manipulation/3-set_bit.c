@@ -9,9 +9,17 @@
 
 int set_bit(unsigned long int *n, unsigned int index)
 {
-	*n |= 1U << index;
+	int count = 0;
+	unsigned long original = *n;
+	*n |= 1U << index; /* Clear the bit at @index */
 
-	if (!((*n >> index) & 1U))
+	while (original)
+	{
+		count++;
+		original >>= 1;
+	}
+
+	if (index > count)
 		return (-1);
 
 	return (1);
