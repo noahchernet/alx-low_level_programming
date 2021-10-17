@@ -14,7 +14,7 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	unsigned int bits_to_flip = 0;
 	int i;
 
-	for (i = 0; i < 24; i++)
+	for (i = 0; i < 64; i++)
 	{
 		if ((1 & n >> i) == (1 & m >> i))
 			continue;
