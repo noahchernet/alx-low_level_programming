@@ -18,7 +18,7 @@ int set_bit(unsigned long int *n, unsigned int index)
 		copy >>= 1;
 	}
 
-	if (index > count && *n != 0)
+	if (index > 24)
 		return (-1);
 
 	*n |= 1U << index; /* Clear the bit at @index */
