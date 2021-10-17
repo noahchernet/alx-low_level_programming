@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "holberton.h"
+#include "main.h"
 
 /**
  * main - check the code for Holberton School students.
@@ -10,11 +10,13 @@ int main(void)
 {
     int n;
 
-    n = get_bit(1024, 10);
+    n = get_bit(2048, 20);
     printf("%d\n", n);
+/*
     n = get_bit(98, 1);
     printf("%d\n", n);
     n = get_bit(1024, 0);
     printf("%d\n", n);
+*/
     return (0);
 }
