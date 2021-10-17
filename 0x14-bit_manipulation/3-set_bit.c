@@ -10,18 +10,18 @@
 int set_bit(unsigned long int *n, unsigned int index)
 {
 	unsigned int count = 0;
-	unsigned long original = *n;
-	*n |= 1U << index; /* Clear the bit at @index */
+	unsigned long copy = *n;
 
-	while (original)
+	while (copy)
 	{
 		count++;
-		original >>= 1;
+		copy >>= 1;
 	}
 
-	if (index > count && !*n)
+	if (index > count && *n != 0)
 		return (-1);
 
+	*n |= 1U << index; /* Clear the bit at @index */
 	return (1);
 }
 
