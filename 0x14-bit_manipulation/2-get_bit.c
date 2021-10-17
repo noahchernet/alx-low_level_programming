@@ -21,15 +21,14 @@ int get_bit(unsigned long int n, unsigned int index)
 	}
 	n = copy;
 
-
-	bit = (int) (n >> index) & 1;
-
 	/*
 	 * unsigned long *n uses 4 * 8 bits in memory. If index is out of bound
 	 * of that memory, don't modify *n and return -1
 	 */
 	if (index > 24)
 		return (-1);
+
+	bit = (int) (n >> index) & 1;
 
 	return (bit);
 }
