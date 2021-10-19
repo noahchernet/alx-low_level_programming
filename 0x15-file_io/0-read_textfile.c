@@ -14,8 +14,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd; /* file descriptor */
 	char *buffer;
-	unsigned long i;
-	int x, bytes_printed = 0;
+	ssize_t bytes_printed;
 
 	if (!filename)
 		return (0);
@@ -33,19 +32,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buffer[letters - 1] = 0;
 	close(fd);
 
-	for (i = 0; i < strlen(buffer); i++)
-	{
-		x = _putchar(buffer[i]);
+	bytes_printed = write(STDOUT_FILENO, buffer, strlen(buffer));
 
-		if (x == -1)
-		{
-			close(fd);
-			return (0);
-		}
-
-		bytes_printed++;
-	}
-
-	free(buffer);
 	return (bytes_printed);
 }
