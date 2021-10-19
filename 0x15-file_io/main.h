@@ -1,5 +1,5 @@
 #ifndef FILE_IO_MAIN_H
-#define ALX_LLP_MAIN_H
+#define FILE_IO_MAIN_H
 
 #include "unistd.h"
 #include "stdio.h"
