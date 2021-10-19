@@ -14,7 +14,8 @@ ssize_t read_textfile(const char *filename, size_t letters)
 {
 	int fd; /* file descriptor */
 	char *buffer;
-	int x, i, bytes_printed = 0;
+	unsigned long i;
+	int x, bytes_printed = 0;
 
 	if (!filename)
 		return (0);
@@ -32,7 +33,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	buffer[letters - 1] = 0;
 	close(fd);
 
-	for (i = 0; buffer[i] != 0; i++)
+	for (i = 0; i < strlen(buffer); i++)
 	{
 		x = _putchar(buffer[i]);
 
