@@ -17,8 +17,8 @@ int append_text_to_file(const char *filename, char *text_content)
 	char *aft_wr; /* Chars in @filename after writing in file */
 
 	fd = open(filename, O_RDONLY);
-	if (!filename || !text_content || fd == -1)
-		return (-1);
+	if (!filename || fd == -1) return (-1);
+	if (!text_content) return (1); /* If @text_content is empty, do nothing */
 	do {
 		previous_buffer = buffer_in_file;
 		buffer_in_file = malloc(sizeof(char) * char_count);
