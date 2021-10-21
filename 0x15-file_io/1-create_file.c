@@ -12,37 +12,21 @@
 
 int create_file(const char *filename, char *text_content)
 {
-	int fd, char_count = 1, i;
-	char *buffer_in_file = "*", *previous_buffer;
+	int fd;
 
 	if (!filename)
 		return (-1);
 
-	fd = open(filename, O_CREAT | O_RDWR, 0600);
+	fd = open(filename, O_CREAT | O_RDWR | O_TRUNC, 0600);
 
 	if (fd == -1)
 		return (-1);
 
-	/**
-	 * Count the number of characters in the file, if it's not empty, char
-	 * count will be different from 0, and vice versa
-	 */
-	do {
-		previous_buffer = buffer_in_file;
-		buffer_in_file = malloc(sizeof(char) * char_count);
-		read(fd, buffer_in_file, char_count);
-		char_count += (int) strlen(buffer_in_file);
-	} while (*previous_buffer != *buffer_in_file && *buffer_in_file != 0);
-	char_count--;
-	close(fd);
-
-	fd = open(filename, O_WRONLY);
-	for (i = 0; i <= char_count; i++)
-		write(fd, NULL, i);
 	if (!text_content)
 		write(fd, "", 0);
 	else
 	{
+		printf("WRITING\n");
 		write(fd, text_content, strlen(text_content));
 	}
 
