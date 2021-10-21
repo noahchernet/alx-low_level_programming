@@ -17,8 +17,10 @@ int append_text_to_file(const char *filename, char *text_content)
 	char *aft_wr; /* Chars in @filename after writing in file */
 
 	fd = open(filename, O_RDONLY);
-	if (!filename || fd == -1) return (-1);
-	if (!text_content) return (1); /* If @text_content is empty, do nothing */
+	if (!filename || fd == -1)
+		return (-1);
+	if (!text_content)
+		return (1); /* If @text_content is empty, do nothing */
 	do {
 		previous_buffer = buffer_in_file;
 		buffer_in_file = malloc(sizeof(char) * char_count);
@@ -38,18 +40,16 @@ int append_text_to_file(const char *filename, char *text_content)
 		fd = open(filename, O_RDONLY);
 		aft_wr = malloc(sizeof(char) * char_count + strlen(text_content));
 		read(fd, aft_wr, char_count + strlen(text_content));
+		close(fd);
 		/* If @text_content is not written to file, return -1 */
 		if (*str_concat(buffer_in_file, text_content) != *aft_wr)
 		{
 			free(buffer_in_file);
-			close(fd);
 			return (-1);
 		}
-		close(fd);
 		return (1);
 	}
-	else
-		write(fd, text_content, strlen(text_content));
+	write(fd, text_content, strlen(text_content));
 	close(fd);
 	return (1);
 }
