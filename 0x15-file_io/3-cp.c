@@ -41,13 +41,12 @@ int main(int argc, char *argv[])
 void copy_contents(int fd_from, int fd_to, char *filename_fd_from,
 				   char *filename_fd_to)
 {
-	int char_count = 1, i = 1024;
-	char *buffer_in_file_from, *buffer_in_file_to, *buffer_to_copy;
+	int char_count = 1;
+	char *buffer_in_file_from = malloc(1), *buffer_in_file_to;
 
-	buffer_in_file_from = malloc(sizeof(char) * 1);
-	buffer_in_file_from = "*";
 	/* Count the number of character to copy from fd_from */
 	do {
+		free(buffer_in_file_from);
 		buffer_in_file_from = malloc(sizeof(char) * char_count);
 		read(fd_from, buffer_in_file_from, char_count);
 		char_count += (int) strlen(buffer_in_file_from);
@@ -60,22 +59,12 @@ void copy_contents(int fd_from, int fd_to, char *filename_fd_from,
 	buffer_in_file_from = malloc(sizeof(char) * char_count);
 	read(fd_from, buffer_in_file_from, char_count);
 
-	do {
-		if (strlen(buffer_in_file_from) < 1024)
-		{
-			write(fd_to, buffer_in_file_from, strlen(buffer_in_file_from));
-			break;
-		}
-		buffer_to_copy = *(&buffer_in_file_from + i);
-		write(fd_to, buffer_to_copy, 1024);
-		i += 1024;
-	} while (i < char_count + 1024);
+	write(fd_to, buffer_in_file_from, char_count);
 	close_file(fd_to);
 	fd_to = open_file(filename_fd_to, O_RDONLY, 0, -1);
-
 	buffer_in_file_to = malloc(sizeof(char) * char_count);
 	read(fd_to, buffer_in_file_to, char_count);
-	/* Check if file copy is successfull */
+	/* Check if file copy is successful */
 	if (*buffer_in_file_from != *buffer_in_file_to)
 	{
 		free(buffer_in_file_from);
