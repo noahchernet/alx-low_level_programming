@@ -12,5 +12,9 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 int _putchar(char c);
 char *str_concat(const char *s1, const char *s2);
+void copy_contents(int fd_from, int fd_to, char *filename_fd_from,
+				   char *filename_fd_to);
+void close_file(int fd);
+int open_file(char *filename, int flag, int file_to_copy_from, int fp);
 
 #endif /* FILE_IO_MAIN_H */
