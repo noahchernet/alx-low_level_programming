@@ -71,7 +71,7 @@ void copy_contents(int fd_from, int fd_to, char *filename_fd_from,
 		free(buffer_in_file_to);
 		close_file(fd_from);
 		close_file(fd_to);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", filename_fd_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename_fd_to);
 		exit(99);
 	}
 	free(buffer_in_file_from);
@@ -88,7 +88,7 @@ void close_file(int fd)
 {
 	if (close(fd) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %i", fd);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", fd);
 		exit(100);
 	}
 }
@@ -122,7 +122,7 @@ int open_file(char *filename, int flag, int file_to_copy_from, int fp)
 					filename);
 			exit(98);
 		}
-		dprintf(STDERR_FILENO, "Error: Can't write to %s", filename);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 		exit(99);
 	}
 
