@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 	fd_from = open_file(argv[1], O_RDONLY, 1, -1);
 	fd_to = open_file(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0, 0664);
 
-	copy_contents(fd_from, fd_to, argv[1], argv[2]);
+	copy_contents(fd_from, fd_to, argv[1]);
 
 	close_file(fd_from);
 	close_file(fd_to);
@@ -38,11 +38,10 @@ int main(int argc, char *argv[])
  * Return: void
  */
 
-void copy_contents(int fd_from, int fd_to, char *filename_fd_from,
-				   char *filename_fd_to)
+void copy_contents(int fd_from, int fd_to, char *filename_fd_from)
 {
 	int char_count = 1;
-	char *buffer_in_file_from = malloc(1), *buffer_in_file_to;
+	char *buffer_in_file_from = malloc(1);
 
 	/* Count the number of character to copy from fd_from */
 	do {
@@ -60,13 +59,6 @@ void copy_contents(int fd_from, int fd_to, char *filename_fd_from,
 	read(fd_from, buffer_in_file_from, char_count);
 
 	write(fd_to, buffer_in_file_from, char_count);
-	close_file(fd_to);
-	fd_to = open_file(filename_fd_to, O_RDONLY, 0, -1);
-	buffer_in_file_to = malloc(sizeof(char) * char_count);
-	read(fd_to, buffer_in_file_to, char_count);
-
-	free(buffer_in_file_from);
-	free(buffer_in_file_to);
 }
 
 /**
