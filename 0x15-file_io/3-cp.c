@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 	}
 
 	fd_from = open_file(argv[1], O_RDONLY, 1, -1);
-	fd_to = open_file(argv[2], O_CREAT | O_TRUNC | O_RDWR, 0, 0664);
+	fd_to = open_file(argv[2], O_CREAT | O_TRUNC | O_WRONLY, 0, 0664);
 
 	copy_contents(fd_from, fd_to, argv[1], argv[2]);
 
@@ -64,16 +64,7 @@ void copy_contents(int fd_from, int fd_to, char *filename_fd_from,
 	fd_to = open_file(filename_fd_to, O_RDONLY, 0, -1);
 	buffer_in_file_to = malloc(sizeof(char) * char_count);
 	read(fd_to, buffer_in_file_to, char_count);
-	/* Check if file copy is successful */
-	if (*buffer_in_file_from != *buffer_in_file_to)
-	{
-		free(buffer_in_file_from);
-		free(buffer_in_file_to);
-		close_file(fd_from);
-		close_file(fd_to);
-		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename_fd_to);
-		exit(99);
-	}
+
 	free(buffer_in_file_from);
 	free(buffer_in_file_to);
 }
