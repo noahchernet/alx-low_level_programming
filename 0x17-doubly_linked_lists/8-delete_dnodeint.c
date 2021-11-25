@@ -14,7 +14,7 @@ int delete_dnodeint_at_index(dlistint_t **head, unsigned int index)
 	dlistint_t *head_backup = *head;  /* Backup to restore when func returns */
 	unsigned int node = 0;
 
-	if (!h->next && h->n == 0 && !h->prev)
+	if (!h || (!h->next && h->n == 0 && !h->prev))
 	{
 		head = NULL;
 		return (-1);
