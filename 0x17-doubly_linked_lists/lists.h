@@ -1,6 +1,8 @@
 #ifndef ALX_LLP_LISTS_H
 #define ALX_LLP_LISTS_H
 
+#include "stddef.h"
+#include "stdio.h"
 /**
  * struct dlistint_s - doubly linked list
  * @n: integer
