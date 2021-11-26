@@ -34,23 +34,23 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 				h_copy->prev = new_node;
 				new_node->next = h_copy;
 				*h = new_node;
-				return (new_node);
 			}
-			if (!h_copy->next)
+			else if (!h_copy->next)
 			{
 				h_copy->next = new_node;
 				new_node->prev = h_copy;
-				return (new_node);
 			}
-			new_node->next = h_copy;
-			new_node->prev = h_copy->prev;
-			h_copy->prev->next = new_node;
-			h_copy->prev = new_node;
+			else
+			{
+				new_node->next = h_copy;
+				new_node->prev = h_copy->prev;
+				h_copy->prev->next = new_node;
+				h_copy->prev = new_node;
+			}
 			return (new_node);
 		}
 		node++;
 		h_copy = h_copy->next;
 	}
-	*h = h_copy;
 	return (NULL);
 }
