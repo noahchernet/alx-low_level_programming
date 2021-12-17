@@ -26,7 +26,10 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		ht->array[idx] = new_node;
 
 	else
-		ht->array[idx]->next = new_node;
+	{
+		new_node->next = ht->array[idx];
+		ht->array[idx] = new_node;
+	}
 
 	return (1);
 }
