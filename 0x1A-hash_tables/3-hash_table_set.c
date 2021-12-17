@@ -20,7 +20,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	idx = hash_djb2((const unsigned char *) key) % ht->size;
 
 	new_node->key = (char *) key;
-	new_node->value = strdup(value);
+	new_node->value = strcmp(value, "") ? strdup(value) : "";
 
 	/**
 	 * If the index is empty, put the new node in idx
