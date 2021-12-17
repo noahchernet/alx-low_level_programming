@@ -2,6 +2,7 @@
 #define C_HASH_TABLES_H
 
 #include "stdlib.h"
+#include "string.h"
 
 /**
  * struct hash_node_s - Node of a hash table

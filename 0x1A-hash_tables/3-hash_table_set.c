@@ -22,13 +22,30 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new_node->key = (char *) key;
 	new_node->value = (char *) value;
 
+	/**
+	 * If the index is empty, put the new node in idx
+	 */
 	if (!ht->array[idx])
+	{
 		ht->array[idx] = new_node;
+	}
 
-	else
+	/**
+	 * If there is a collision, make new_node to the top of the list of items
+	 * that have hashes evaluating to idx
+	 */
+	else if (strcmp(ht->array[idx]->value, value) != 0)
 	{
 		new_node->next = ht->array[idx];
 		ht->array[idx] = new_node;
+	}
+
+	/**
+	 * Update the key's value if the key of ht->array[idx] is the same as @key
+	 */
+	else
+	{
+		ht->array[idx]->value = strdup(value);
 	}
 
 	return (1);
