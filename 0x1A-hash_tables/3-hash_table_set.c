@@ -14,7 +14,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *new_node = malloc(sizeof(hash_node_t));
 	unsigned int idx;
 
-	if (!key || !new_node)
+	if (!key || strlen(key) == 0 || !new_node)
 		return (0);
 
 	idx = hash_djb2((const unsigned char *) key) % ht->size;
@@ -34,7 +34,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	 * If there is a collision, make new_node to the top of the list of items
 	 * that have hashes evaluating to idx
 	 */
-	else if (strcmp(ht->array[idx]->value, value) != 0)
+	else if (strcmp(ht->array[idx]->key, key) != 0)
 	{
 		new_node->next = ht->array[idx];
 		ht->array[idx] = new_node;
