@@ -8,6 +8,7 @@ void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long i, j;
 	hash_node_t *node;
+	char *comma_to_concat = "";
 
 	if (!ht)
 		return;
@@ -25,7 +26,11 @@ void hash_table_print(const hash_table_t *ht)
 		node = ht->array[i];
 		while (node)
 		{
-			printf("\'%s\': \'%s\'", node->key, node->value);
+			if (node->next)
+				comma_to_concat = ", ";
+			else
+				comma_to_concat = "";
+			printf("\'%s\': \'%s\'%s", node->key, node->value, comma_to_concat);
 			node = node->next;
 		}
 
