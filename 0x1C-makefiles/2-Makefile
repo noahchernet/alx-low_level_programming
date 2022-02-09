@@ -4,11 +4,11 @@ OBJ = *.o
 NAME = school
 
 all: main.o school.o
-	gcc main.o school.o -o $(NAME)
+	$(CC) main.o school.o -o $(NAME)
 
 main.o: main.c
-	gcc 	-c -o main.o main.c
+	$(CC)	-c -o main.o main.c
 
 school.o: school.c
-	gcc 	-c -o school.o school.c
+	$(CC)	-c -o school.o school.c
 
