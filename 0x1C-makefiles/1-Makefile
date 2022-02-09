@@ -1,8 +1,7 @@
-CC := gcc
-SRC := *.c
+CC = gcc
+SRC = *.c
 
 all: school
 
 school:
 	${CC} ${SRC} -o school
-
