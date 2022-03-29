@@ -22,23 +22,13 @@ int binary_search(int *array, size_t size, int value)
 				print_array(array, lo, hi);
 			return (mid);
 		}
-		/*
-		* printf(" [PIVOT = %d]\n", array[mid]);
-		* printf("\n");
-		*/
+
 		if (value < array[mid])
 			hi = mid - 1;
 		else if (value > array[mid])
 			lo = mid + 1;
 		else
-		{
-			/*
-			* if (array[mid] == value)
-			*	lo = mid + 1;
-			* else
-			*/
-				lo = mid;
-		}
+			lo = mid;
 	}
 
 	return (-1);
