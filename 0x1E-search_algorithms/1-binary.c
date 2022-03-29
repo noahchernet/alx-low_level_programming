@@ -10,34 +10,59 @@
  */
 int binary_search(int *array, size_t size, int value)
 {
-    int idx = -1;
-    size_t i;
 
-    printf("Searching in array: ");
+	int lo = 0, hi = (int) size - 1, mid;
 
-    for (i = 0; i < size; i++)
-    {
-        printf("%i", array[i]);
+	for (mid = (lo + hi) / 2; hi - lo > -1; mid = (lo + hi) / 2)
+	{
+		print_array(array, lo, hi);
+		if (array[mid] == value)
+		{
+			if (hi - lo == 1)
+				print_array(array, lo, hi);
+			return (mid);
+		}
+		/*
+		* printf(" [PIVOT = %d]\n", array[mid]);
+		* printf("\n");
+		*/
+		if (value < array[mid])
+			hi = mid - 1;
+		else if (value > array[mid])
+			lo = mid + 1;
+		else
+		{
+			/*
+			* if (array[mid] == value)
+			*	lo = mid + 1;
+			* else
+			*/
+				lo = mid;
+		}
+	}
 
-        if (i != size - 1)
-            printf(", ");
-    }
-    printf("\n");
-
-    if (value == array[size / 2])
-    {
-        idx = size / 2;
-    }
-    else if (value < array[size / 2])
-    {
-        printf("Going  left: ");
-        idx = binary_search(array, size / 2, value);
-    }
-    else if (value > array[size / 2])
-    {
-        printf("Going right: ");
-        idx = size - size / 2 - 1 + binary_search(array + (int)size / 2, size - size / 2, value);
-    }
-
-    return idx;
+	return (-1);
 }
+
+/**
+ * print_array - prints the values of an array starting from lower bound upto
+ * upper bound
+ * @array: array of ints to be displayed
+ * @lower_bound: the first element's index to be printed
+ * @upper_bound: the last element's index to be printed
+ */
+void print_array(int *array, int lower_bound, int upper_bound)
+{
+	int i;
+
+	printf("Searching in array: ");
+	for (i = lower_bound; i <= upper_bound; i++)
+	{
+		printf("%i", array[i]);
+
+		if (i != upper_bound)
+			printf(", ");
+	}
+	printf("\n");
+}
+
