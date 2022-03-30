@@ -8,5 +8,6 @@ int linear_search(int *array, size_t size, int value);
 int binary_search(int *array, size_t size, int value);
 void print_array(int *array, int lower_bound, int upper_bound);
 int jump_search(int *array, size_t size, int value);
+int interpolation_search(int *array, size_t size, int value);
 
 #endif /* SEARCH_ALGOS */
