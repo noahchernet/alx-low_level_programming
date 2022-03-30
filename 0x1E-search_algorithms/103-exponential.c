@@ -14,7 +14,7 @@ int exponential_search(int *array, size_t size, int value)
 
 	int i, lo, hi, mid;
 
-	for (i = 0; i < (int) size ; i++)
+	for (i = 0; array && i < (int) size ; i++)
 	{
 		hi = power(2, i);
 		lo = i == 0 ? 0 : power(2, i - 1);
